@@ -46,5 +46,6 @@ export default props => (
     </List.Item>
 
   </List>
+  <br/>
   </div>
 )

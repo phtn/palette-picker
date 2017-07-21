@@ -7,7 +7,7 @@ import Card from './Card'
 import Credits from './Credits'
 const store = new Colors()
 const nav = {
-  margin: 20
+  margin: 50
 }
 const content = {
   display: 'flex',
@@ -19,7 +19,8 @@ const credits = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: 300,
+  marginTop: 75,
+
 }
 const Index = observer ( class App extends Component {
   state = {

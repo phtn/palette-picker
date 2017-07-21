@@ -6,7 +6,7 @@ export default props => (
     <Icon name='cube' />
     <Header.Content>
       Palette Picker
-      <Header.Subheader>
+      <Header.Subheader as='a' href='http://www.colourlovers.com/'>
         Made with  &nbsp;&nbsp;<Icon name='heart' color='red'/>using Colourlovers API
       </Header.Subheader>
     </Header.Content>
