@@ -19,7 +19,7 @@ const credits = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  marginTop: 75,
+  marginTop: 50,
 
 }
 const Index = observer ( class App extends Component {
