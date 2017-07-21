@@ -33,10 +33,18 @@ export default props => (
     <List.Item>
       <List.Icon name='twitter' size='large' verticalAlign='middle' />
       <List.Content>
-        <List.Header as='a'>phtn458</List.Header>
+        <List.Header as='a' href='https://twitter.com/phtn458'>phtn458</List.Header>
         <List.Description as='a'>@phtn458</List.Description>
       </List.Content>
     </List.Item>
+    <List.Item>
+      <List.Icon name='twitter' size='large' verticalAlign='middle' />
+      <List.Content>
+        <List.Header as='a' href='https://github.com/phtn/palette-picker'>project repository</List.Header>
+        <List.Description as='a'>palette picker</List.Description>
+      </List.Content>
+    </List.Item>
+
   </List>
   </div>
 )
