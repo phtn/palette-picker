@@ -16,7 +16,7 @@ class Saved extends Component {
         onClick={()=> this.props.click(p.title)}
       >
         <List.Content>
-          <Button >{p.name}</Button>
+          <Button>{p.name}</Button>
           <Button style={{backgroundColor: `#${p.c0}`, height: 30, width: 30}}></Button>
           <Button style={{backgroundColor: `#${p.c1}`, height: 30, width: 30}}></Button>
           <Button style={{backgroundColor: `#${p.c2}`, height: 30, width: 30}}></Button>
