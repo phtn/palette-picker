@@ -87,6 +87,7 @@ const Index = observer ( class App extends Component {
             title={'saved items list'}
             palettes={deskItem.palettes}
             click={()=> colour.showPalette()}
+            copy={deskItem.copy}
           />
         </div>
         <div style={desk}>
