@@ -1,48 +1,46 @@
+import DevTools from 'mobx-react-devtools'
+
 import React, { Component } from 'react';
 import { observer } from 'mobx-react'
 import Colors from './Colors'
 import 'semantic-ui-css/semantic.min.css'
+import './animated.css'
 import Nav from './Nav'
 import Card from './Card'
-import Credits from './Credits'
-const store = new Colors()
+import Desk from './Desk'
+import Saved from './Saved'
+import DeskItem from './DeskItem'
+
+
+const colour = new Colors()
+const deskItem = new DeskItem()
 const nav = {
   margin: 50
 }
 const content = {
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center',
+  //alignItems: 'center',
   height: 300,
 }
-const credits = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  marginTop: 50,
 
+const desk = {
+  position: 'absolute',
+  left: 0,
+  bottom: 0,
+  width: '100%'
+}
+const deskContent = {
+  margin: 20,
+  maxHeight: 200,
+  overflow: 'auto',
 }
 const Index = observer ( class App extends Component {
-  state = {
-    index: 0
-  }
-  next(){
-    if (this.state.index < store.data.length - 1 ){
-      this.setState({index: this.state.index + 1})
-    } else {
-      this.setState({index: 0})
-    }
-  }
-  prev(){
-    if (this.state.index > 0 ){
-      this.setState({index: this.state.index - 1})
-    } else {
-      this.setState({index: 99})
-    }
-  }
+  
   componentDidMount(){
-    console.log(store.data.length)
+    window.localStorage.setItem('storedPalettes', [])    
   }
+ 
   render(){
     return(
       <div>
@@ -51,21 +49,45 @@ const Index = observer ( class App extends Component {
         </div>
         <div style={content}>
           <Card 
-            title={store.data[this.state.index].title} 
-            user={store.data[this.state.index].userName} 
-            votes={store.data[this.state.index].numVotes}
-            colorOne={store.data[this.state.index].colors[0]}
-            colorTwo={store.data[this.state.index].colors[1]}
-            colorThree={store.data[this.state.index].colors[2]}
-            colorFour={store.data[this.state.index].colors[3]}
-            colorFive={store.data[this.state.index].colors[4]}
-            next={()=> this.next()}
-            prev={()=> this.prev()}
+            title={colour.data[colour.index].title} 
+            user={colour.data[colour.index].userName} 
+            votes={colour.data[colour.index].numVotes}
+            colorOne={colour.data[colour.index].colors[0]}
+            colorTwo={colour.data[colour.index].colors[1]}
+            colorThree={colour.data[colour.index].colors[2]}
+            colorFour={colour.data[colour.index].colors[3]}
+            colorFive={colour.data[colour.index].colors[4]}
+            next={()=> colour.next()}
+            prev={()=> colour.prev()}
+            save={()=> deskItem.storePalette(
+              colour.index, 
+              colour.data[colour.index].title, 
+              colour.data[colour.index].colors[0], 
+              colour.data[colour.index].colors[1],
+              colour.data[colour.index].colors[2],
+              colour.data[colour.index].colors[3],
+              colour.data[colour.index].colors[4] 
+            )}
           />
         </div>
-        <div style={credits}>
-          <Credits />
+        <div style={deskContent}>
+          <Saved 
+            title={'saved items list'}
+            palettes={deskItem.palettes}
+            click={()=> colour.showPalette()}
+          />
         </div>
+        <div style={desk}>
+          <Desk
+            saved={deskItem.storedPaletteCount}
+            click={(t)=> this.getActiveTabName(t)}
+          />
+        </div>
+        
+
+        <DevTools/>
+
+
       </div>
     )
   }

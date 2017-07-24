@@ -8,6 +8,11 @@ const hex = {
 const div = {
   overflow: 'hidden'
 }
+const save = {
+  width: 50,
+  height: 42,
+  padding: 15
+}
 export default props => (
   <Card fluid>
     <div style={div}>
@@ -32,6 +37,15 @@ export default props => (
       </Grid>  
     </div>  
     <Card.Content>
+      <Button 
+        basic 
+        color='teal' 
+        floated='right' 
+        style={save}
+        onClick={props.save}
+        >
+        <Icon name='remove bookmark' style={{fontSize: 25}}/>
+      </Button>
       <Card.Header>
         {props.title}
       </Card.Header>
