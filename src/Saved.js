@@ -10,13 +10,12 @@ class Saved extends Component {
   render(){
     const listItems = this.props.palettes.reverse().map(p=>(
       <List.Item 
-        key={p.id}
+        key={p.createdAt}
         className='animated fadeInLeft'
         style={item}
-        onClick={()=> this.props.click(p.title)}
       >
         <List.Content>
-          <Button>{p.name}</Button>
+          <Button>{`${p.name}`}</Button>
           <Button style={{backgroundColor: `#${p.c0}`, height: 30, width: 30}}></Button>
           <Button style={{backgroundColor: `#${p.c1}`, height: 30, width: 30}}></Button>
           <Button style={{backgroundColor: `#${p.c2}`, height: 30, width: 30}}></Button>

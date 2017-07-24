@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Icon, Menu, Label } from 'semantic-ui-react'
-import DeskItem from './DeskItem'
-
-const deskItem = new DeskItem()
 
 const saveLabel = {
   color: 'teal',
@@ -10,10 +7,6 @@ const saveLabel = {
 }
 class Desk extends Component {
 
-  handleClickItem(){
-    console.log()
-  }
-  
   render(){
     return(
       <div>

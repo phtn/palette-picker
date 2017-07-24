@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import DevTools from 'mobx-react-devtools'
 
 import React, { Component } from 'react';
@@ -66,8 +67,10 @@ const Index = observer ( class App extends Component {
               colour.data[colour.index].colors[1],
               colour.data[colour.index].colors[2],
               colour.data[colour.index].colors[3],
-              colour.data[colour.index].colors[4] 
+              colour.data[colour.index].colors[4],
+              Number(new Date())
             )}
+            saveIconName={deskItem.iconName}
           />
         </div>
         <div style={deskContent}>
