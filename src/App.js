@@ -11,10 +11,19 @@ import Card from './Card'
 import Desk from './Desk'
 import Saved from './Saved'
 import DeskItem from './DeskItem'
+import Layout from './Layout'
 
-
+// stores
+const layout = new Layout()
 const colour = new Colors()
 const deskItem = new DeskItem()
+
+
+// styles TODO !! need to upgrade to glamorous
+const container = {
+  width: layout.width - 200,
+  marginLeft: layout.left
+}
 const nav = {
   margin: 50
 }
@@ -44,7 +53,7 @@ const Index = observer ( class App extends Component {
  
   render(){
     return(
-      <div>
+      <div style={container}>
         <div style={nav}>
           <Nav />
         </div>
