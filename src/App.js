@@ -32,7 +32,7 @@ const desk = {
 }
 const deskContent = {
   margin: 20,
-  maxHeight: 200,
+  maxHeight: 300,
   overflow: 'auto',
 }
 const Index = observer ( class App extends Component {

@@ -44,7 +44,7 @@ export default props => (
         style={save}
         onClick={props.save}
         >
-        <Icon name='remove bookmark' style={{fontSize: 25}}/>
+        <Icon name='bookmark' style={{fontSize: 25}}/>
       </Button>
       <Card.Header>
         {props.title}

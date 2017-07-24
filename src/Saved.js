@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { List, Button } from 'semantic-ui-react'
 
-
 const item = {
   color: 'teal'
 }

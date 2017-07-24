@@ -4,25 +4,27 @@ import DeskItem from './DeskItem'
 
 const deskItem = new DeskItem()
 
+const saveLabel = {
+  color: 'teal',
+  fontWeight: 'bolder'
+}
 class Desk extends Component {
 
-  handleClickItem(e, {name}){
-    deskItem.setName(name)
-    console.log(deskItem.name)
-
+  handleClickItem(){
+    console.log()
   }
   
   render(){
     return(
       <div>
         <Menu pointing secondary>
-          <Menu.Item name='saved' active={deskItem.name === 'saved'} onClick={this.handleClickItem.bind(this)}>
-            Saved <Label color='teal'>{this.props.saved}</Label>
+          <Menu.Item name='saved' active={false}>
+            <span style={saveLabel}>Saved</span> <Label color='teal'>{this.props.saved}</Label>
           </Menu.Item>
 
           <Menu.Menu position='right'>
-            <Menu.Item name='info' active={deskItem.name === 'info'} onClick={this.handleClickItem.bind(this)}>
-              <Icon name='info' color='grey' />
+            <Menu.Item name='info' active={false} as='a' href='https://github.com/phtn/palette-picker'>
+              <Icon name='github' />
             </Menu.Item>
           </Menu.Menu>
         </Menu>
