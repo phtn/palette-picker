@@ -85,7 +85,7 @@ const Index = observer ( class App extends Component {
         </div>
         
 
-        <DevTools/>
+        {/*<DevTools/>*/}
 
 
       </div>
