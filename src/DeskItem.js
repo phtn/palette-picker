@@ -1,10 +1,6 @@
 import { action, extendObservable } from 'mobx'
 
 
-// element = myArray.filter((e) => e.hello === 'stevie')[0];
-function isInPalettes(value, array){
-  return array.indexOf(value) > -1
-}
 
 class DeskItem {
   constructor(){
@@ -13,23 +9,26 @@ class DeskItem {
       setName: action( (name)=> {
         this.name = name
       }),
-      isStored: false,
+
+      getStoredPalettes: action((palettes)=> {
+        this.palettes = palettes
+      }),
+      getPaletteCount: action((count)=> {
+        this.storedPaletteCount = count
+      }),
+      palettes: [],
       storedPaletteCount: 0,
       iconName: 'bookmark',
-      palettes: [],
       storePalette: action( (id, name, c0, c1, c2, c3, c4)=> {
 
-        console.log(isInPalettes(id, this.palettes))
-        if (isInPalettes(id, this.palettes) === false ){
-          this.palettes.push({id, name, c0, c1, c2, c3, c4, createdAt: Number(new Date())})
-        }
+        this.palettes.push({id, name, c0, c1, c2, c3, c4, createdAt: Number(new Date())})
+        console.log(this.palettes.length)
 
         this.storedPaletteCount = this.palettes.length
         
-        this.isStored = !this.isStored        
-
-        window.localStorage.setItem('storedPalettes',
-          this.palettes
+        // store local
+        localStorage.setItem('storedPalettes', 
+          JSON.stringify(this.palettes)
         )
 
       }),
@@ -49,7 +48,7 @@ class DeskItem {
 
 
         function copyTextToClipboard(text) {
-          var textArea = document.createElement("textarea");
+          let textArea = document.createElement("textarea");
 
           //
           // *** This styling is an extra step which is likely not required. ***
@@ -95,8 +94,8 @@ class DeskItem {
           textArea.select();
 
           try {
-            var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
+            let successful = document.execCommand('copy');
+            let msg = successful ? 'successful' : 'unsuccessful';
             console.log('Copying text command was ' + msg);
           } catch (err) {
             console.log('Oops, unable to copy');

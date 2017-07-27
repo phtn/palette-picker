@@ -10,7 +10,7 @@ class Desk extends Component {
   render(){
     return(
       <div>
-        <Menu pointing secondary>
+        <Menu secondary>
           <Menu.Item name='saved' active={false}>
             <span style={saveLabel}>Saved</span> <Label color='teal'>{this.props.saved}</Label>
           </Menu.Item>

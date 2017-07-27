@@ -20,10 +20,6 @@ const deskItem = new DeskItem()
 
 
 // styles TODO !! need to upgrade to glamorous
-const container = {
-  width: layout.width - 200,
-  marginLeft: layout.left
-}
 const nav = {
   margin: 50
 }
@@ -48,12 +44,29 @@ const deskContent = {
 const Index = observer ( class App extends Component {
   
   componentDidMount(){
-    window.localStorage.setItem('storedPalettes', [])    
+    // localStorage
+    if (localStorage.getItem('storedPalettes') === null){
+      localStorage.setItem('storedPalettes', [])
+    } else {
+      console.log('local storage active')
+      deskItem.getStoredPalettes(JSON.parse(localStorage.getItem('storedPalettes')))
+      deskItem.getPaletteCount(deskItem.palettes.length)
+    }
+
+    // media query
+    window.addEventListener('resize', ()=> {
+      layout.resizedWidth(window.innerWidth)
+    })
+
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize', ()=> layout.resizedWidth())
+    
   }
  
   render(){
     return(
-      <div style={container}>
+      <div style={layout.container}>
         <div style={nav}>
           <Nav />
         </div>
