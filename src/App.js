@@ -60,7 +60,9 @@ const Index = observer ( class App extends Component {
 
   }
   componentWillUnmount(){
-    window.removeEventListener('resize', ()=> layout.resizedWidth())
+    window.removeEventListener('resize', ()=> {
+      layout.resizedWidth(window.innerWidth)
+    })
     
   }
  
