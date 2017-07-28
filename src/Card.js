@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon, Button, Grid } from 'semantic-ui-react'
+
 const hex = {
   fontSize: 10,
   textAlign: 'center',

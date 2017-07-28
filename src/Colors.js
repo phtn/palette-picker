@@ -8,7 +8,6 @@ class Colors {
       next: action( ()=> {
         if (this.index < data.length - 1){
           this.index = this.index + 1
-          console.log(this.index)
         } else {
           this.index = 0
         }
@@ -16,14 +15,9 @@ class Colors {
       prev: action( ()=> {
         if (this.index > 0){
           this.index = this.index - 1
-          console.log(this.index)
         } else {
           this.index = data.length - 1
-          console.log(this.index)
         }
-      }),
-      showPalette: action( p=> {
-        console.log(p)
       })
 
     })

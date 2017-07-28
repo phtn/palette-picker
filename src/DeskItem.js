@@ -22,7 +22,6 @@ class DeskItem {
       storePalette: action( (id, name, c0, c1, c2, c3, c4)=> {
 
         this.palettes.push({id, name, c0, c1, c2, c3, c4, createdAt: Number(new Date())})
-        console.log(this.palettes.length)
 
         this.storedPaletteCount = this.palettes.length
         
@@ -35,7 +34,7 @@ class DeskItem {
 
       copy: action( (c0, c1, c2, c3, c4 )=> {
         let str = `
-{ // HEX
+HEX = {
   c0: #${c0},
   c1: #${c1},
   c2: #${c2},
@@ -95,10 +94,10 @@ class DeskItem {
 
           try {
             let successful = document.execCommand('copy');
-            let msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Copying text command was ' + msg);
+            let msg = successful ? 'copied!' : 'unable to copy';
+            console.log(msg);
           } catch (err) {
-            console.log('Oops, unable to copy');
+            console.log(err);
           }
 
           document.body.removeChild(textArea);

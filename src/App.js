@@ -26,8 +26,7 @@ const nav = {
 const content = {
   display: 'flex',
   justifyContent: 'center',
-  //alignItems: 'center',
-  height: 300,
+  height: 'parent',
 }
 
 const desk = {
@@ -48,7 +47,7 @@ const Index = observer ( class App extends Component {
     if (localStorage.getItem('storedPalettes') === null){
       localStorage.setItem('storedPalettes', [])
     } else {
-      console.log('local storage active')
+      // console.log('local storage active')
       deskItem.getStoredPalettes(JSON.parse(localStorage.getItem('storedPalettes')))
       deskItem.getPaletteCount(deskItem.palettes.length)
     }
