@@ -3,13 +3,16 @@ import DevTools from 'mobx-react-devtools'
 
 import React, { Component } from 'react';
 import { observer } from 'mobx-react'
-import Colors from './Colors'
+// ui / ux
 import 'semantic-ui-css/semantic.min.css'
 import './animated.css'
+// components
 import Nav from './Nav'
 import Card from './Card'
 import Desk from './Desk'
 import Saved from './Saved'
+// observables 
+import Colors from './Colors'
 import DeskItem from './DeskItem'
 import Layout from './Layout'
 
@@ -36,8 +39,8 @@ const desk = {
   width: '100%'
 }
 const deskContent = {
-  margin: 20,
-  maxHeight: 300,
+  margin: 15,
+  maxHeight: 350,
   overflow: 'auto',
 }
 const Index = observer ( class App extends Component {
@@ -100,8 +103,8 @@ const Index = observer ( class App extends Component {
           <Saved 
             title={'saved items list'}
             palettes={deskItem.palettes}
-            click={()=> colour.showPalette()}
             copy={deskItem.copy}
+            click={colour.setIndex}
           />
         </div>
         <div style={desk}>

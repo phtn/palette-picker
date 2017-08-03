@@ -18,6 +18,9 @@ class Colors {
         } else {
           this.index = data.length - 1
         }
+      }),
+      setIndex: action (i=> {
+        this.index = i
       })
 
     })

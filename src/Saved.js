@@ -38,7 +38,11 @@ class Saved extends Component {
           <Button 
             animated 
             style={copyBtn}
-            onClick={()=> this.props.copy(p.c0,p.c1,p.c2,p.c3,p.c4)}  
+            onClick={()=> {
+              this.props.copy(p.c0,p.c1,p.c2,p.c3,p.c4)
+              this.props.click(p.id)
+              }
+            }  
           >
             <Button.Content visible>
               <Icon name='clipboard' style={copyIcon}/>
@@ -55,7 +59,11 @@ class Saved extends Component {
           <Button 
             animated
             style={itemBtn} 
-            onClick={()=> this.props.copy(p.c0,p.c1,p.c2,p.c3,p.c4)}>
+            onClick={()=> {
+              this.props.copy(p.c0,p.c1,p.c2,p.c3,p.c4)
+              this.props.click(p.id)
+              }
+            }>
             <Button.Content visible>
               {`${p.name}`}
             </Button.Content>
